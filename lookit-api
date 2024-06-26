@@ -1,0 +1,8389 @@
+{
+	"info": {
+		"_postman_id": "d99673cc-609f-44e7-bf65-6b916a7851e3",
+		"name": "LOOKIT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26558441"
+	},
+	"item": [
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "LOGIN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "admin",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "aksesadmin",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "REGISTER",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "superadmin",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "aksesadmin",
+									"type": "default"
+								},
+								{
+									"key": "role_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/auth/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LEAVE TYPE MASTER",
+			"item": [
+				{
+					"name": "GET ALL LEAVE TYPE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/leave-type-master?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"leave-type-master"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE LEAVE TYPE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "leave_type_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "leave_type_name",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/leave-type-master",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"leave-type-master"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE LEAVE TYPE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "admin@mail.com",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/leave-type-master?leave_type_code=&leave_type_name=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"leave-type-master"
+							],
+							"query": [
+								{
+									"key": "leave_type_code",
+									"value": ""
+								},
+								{
+									"key": "leave_type_name",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE LEAVE TYPE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/leave-type-master/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"leave-type-master",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PERMISSION TYPE",
+			"item": [
+				{
+					"name": "GET ALL PERMISSION TYPE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/permission-type?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"permission-type"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE PERMISSION TYPE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "permission_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "permission_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "permission_count",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/leave-type-master",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"leave-type-master"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE PERMISSION TYPE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "admin@mail.com",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/permission-type?permission_code=&permission_name=&permission_count=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"permission-type"
+							],
+							"query": [
+								{
+									"key": "permission_code",
+									"value": ""
+								},
+								{
+									"key": "permission_name",
+									"value": ""
+								},
+								{
+									"key": "permission_count",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE PERMISSION TYPE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/permission-type/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"permission-type",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "NATIONAL HOLIDAY",
+			"item": [
+				{
+					"name": "GET ALL NATIONAL HOLIDAY",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/national-holiday?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"national-holiday"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE NATIONAL HOLIDAY",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "holiday_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "holiday_description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/national-holiday",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"national-holiday"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE NATIONAL HOLIDAY",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "holiday_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "holiday_description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/permission-type?date=&holiday_name=&holiday_description=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"permission-type"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": ""
+								},
+								{
+									"key": "holiday_name",
+									"value": ""
+								},
+								{
+									"key": "holiday_description",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE NATIONAL HOLIDAY",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/national-holiday/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"national-holiday",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BPJS TYPE",
+			"item": [
+				{
+					"name": "GET ALL BPJS TYPE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/bpjs?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"bpjs"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE BPJS TYPE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "bpjs_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "bpjs_code",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/bpjs",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"bpjs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE BPJS TYPE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "bpjs_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "bpjs_code",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/bpjs/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"bpjs",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE BPJS TYPE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/bpjs/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"bpjs",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "INSURANCE",
+			"item": [
+				{
+					"name": "GET ALL INSURANCE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/insurance?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"insurance"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE INSURANCE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "insurance_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "insurance_name",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/insurance",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"insurance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE INSURANCE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "insurance_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "insurance_name",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/insurance/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"insurance",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE INSURANCE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/insurance/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"insurance",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "VACCINE STATUS",
+			"item": [
+				{
+					"name": "GET ALL VACCINE STATUS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/vaccine?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vaccine"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE VACCINE STATUS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vaccine_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "vaccine_status",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/vaccine",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vaccine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE VACCINE STATUS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vaccine_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "vaccine_status",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/vaccine/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vaccine",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE VACCINE STATUS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/insurance/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"insurance",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "COMPANY",
+			"item": [
+				{
+					"name": "GET ALL COMPANY",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/company?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE COMPANY",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "logo",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "company_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "brand_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "business_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "company_phone_number",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "maps",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "radius",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/company",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE COMPANY",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "logo",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "company_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "brand_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "business_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "company_phone_number",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "maps",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "radius",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/company/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE COMPANY",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/company/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AREA",
+			"item": [
+				{
+					"name": "GET ALL AREA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/area?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"area"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE AREA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "logo",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "company_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "brand_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "business_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "company_phone_number",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "maps",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "radius",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/area",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"area"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE AREA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "logo",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "company_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "brand_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "business_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "company_phone_number",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "maps",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "radius",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/area/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"area",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE AREA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/area/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"area",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BRANCH",
+			"item": [
+				{
+					"name": "GET ALL BRANCH",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/branch?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"branch"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE BRANCH",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "branch_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "branch_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "maps",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "radius",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "full_address",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "createdAt",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "updatedAt",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/branch",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"branch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE BRANCH",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "branch_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "branch_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "maps",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "radius",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "full_address",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "createdAt",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "updatedAt",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/branch/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"branch",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE BRANCH",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/branch/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"branch",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DIVISION",
+			"item": [
+				{
+					"name": "GET ALL DIVISION",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/division?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"division"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE DIVISION",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "division_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "division_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/division",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"division"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE DIVISION",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "division_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "division_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/division/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"division",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE DIVISION",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/division/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"division",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POSITION OF WORK",
+			"item": [
+				{
+					"name": "GET ALL POSITION OF WORK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/position-of-work?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"position-of-work"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE POSITION OF WORK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "position_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "position_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/position-of-work",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"position-of-work"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE POSITION OF WORK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "position_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "position_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/position-of-work/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"position-of-work",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE POSITION OF WORK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/position-of-work/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"position-of-work",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "JOB LEVEL",
+			"item": [
+				{
+					"name": "GET ALL JOB LEVEL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/level?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"level"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE JOB LEVEL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "position_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "position_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/level",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"level"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE JOB LEVEL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "position_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "position_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/level/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"level",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE JOB LEVEL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/level/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"level",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EVENTS",
+			"item": [
+				{
+					"name": "GET ALL EVENTS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/events?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE EVENTS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "categories",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "start_time",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "end_time",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "start",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "end",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "allDay",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/events",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE EVENTS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "categories",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "start_time",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "end_time",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "start",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "end",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "allDay",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/events/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE EVENTS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/events/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DOCUMENT",
+			"item": [
+				{
+					"name": "GET ALL DOCUMENT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/document?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"document"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE DOCUMENT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "document_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "document_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "document_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/document",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"document"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE DOCUMENT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "document_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "document_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "document_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/document/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"document",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE DOCUMENT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/document/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"document",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TICKETS",
+			"item": [
+				{
+					"name": "GET ALL TICKETS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/tickets?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tickets"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE TICKETS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "document_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "document_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "document_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/tickets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE TICKETS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "document_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "document_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "document_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/tickets/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tickets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE TICKETS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/tickets/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tickets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ADD GUARANTEE",
+			"item": [
+				{
+					"name": "GET ALL GUARANTEE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/guarantee?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"guarantee"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE GUARANTEE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "guarantee_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/guarantee",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"guarantee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE GUARANTEE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "guarantee_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/guarantee/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"guarantee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE GUARANTEE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/guarantee/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"guarantee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "INCOMING GUARANTEE",
+			"item": [
+				{
+					"name": "GET ALL INCOMING GUARANTEE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/incoming-guarantee?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"incoming-guarantee"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE INCOMING GUARANTEE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "recepient_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_condition",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/incoming-guarantee",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"incoming-guarantee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE INCOMING GUARANTEE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "recepient_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_condition",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/incoming-guarantee/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"incoming-guarantee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE INCOMING GUARANTEE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/incoming-guarantee/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"incoming-guarantee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OUTGOING GUARANTEE",
+			"item": [
+				{
+					"name": "GET ALL OUTGOING GUARANTEE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/outgoing-guarantee?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"outgoing-guarantee"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE OUTGOING GUARANTEE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "end_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "recepient_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_condition",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/outgoing-guarantee",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"outgoing-guarantee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE OUTGOING GUARANTEE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "end_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "recepient_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_condition",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "guarantee_description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/outgoing-guarantee/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"outgoing-guarantee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE OUTGOING GUARANTEE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/outgoing-guarantee/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"outgoing-guarantee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ASSETS",
+			"item": [
+				{
+					"name": "GET ALL ASSETS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/assets?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"assets"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE ASSETS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "picture",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "asset_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_brand",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_color",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_quantity",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_condition",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/assets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"assets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE ASSETS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "picture",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "asset_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_brand",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_color",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_quantity",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_condition",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/assets/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"assets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE ASSETS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/assets/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"assets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "INCOMING ASSETS",
+			"item": [
+				{
+					"name": "GET ALL INCOMING ASSETS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/incoming-assets?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"incoming-assets"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE INCOMING ASSETS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_brand",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_color",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_condition",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_quantity",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/incoming-assets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"incoming-assets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE INCOMING ASSETS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_brand",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_color",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_condition",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_quantity",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/incoming-assets/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"incoming-assets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE INCOMING ASSETS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/incoming-assets/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"incoming-assets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OUTGOING ASSETS",
+			"item": [
+				{
+					"name": "GET ALL OUTGOING ASSETS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/outgoing-assets?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"outgoing-assets"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE OUTGOING ASSETS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_brand",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_color",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_condition",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_quantity",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "picture",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/outgoing-assets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"outgoing-assets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE OUTGOING ASSETS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_brand",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_color",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_condition",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_quantity",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "asset_description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/outgoing-assets/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"outgoing-assets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE OUTGOING ASSETS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/outgoing-assets/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"outgoing-assets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MUTATION LOCATION",
+			"item": [
+				{
+					"name": "GET ALL MUTATION LOCATION",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/mutation/location?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mutation",
+								"location"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE MUTATION LOCATION",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "area_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "date_created",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "date_applied",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "mutation_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "mutation_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "picture",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/mutation/create-location",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mutation",
+								"create-location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE MUTATION LOCATION",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "status_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "area_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "date_created",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "date_applied",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "mutation_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "mutation_type",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/mutation/update-location/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mutation",
+								"update-location",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE MUTATION LOCATION",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/mutation/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mutation",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MUTATION POSITION",
+			"item": [
+				{
+					"name": "GET ALL MUTATION POSITION",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/mutation/position?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mutation",
+								"position"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE MUTATION POSITION",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "position_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "status_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "date_created",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "date_applied",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "mutation_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "mutation_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "picture",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/mutation/create-position",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mutation",
+								"create-position"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE MUTATION POSITION",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "status_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "position_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "date_created",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "date_applied",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "mutation_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "mutation_type",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/mutation/update-position/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mutation",
+								"update-position",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE MUTATION POSITION",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/mutation/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"mutation",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "KPI",
+			"item": [
+				{
+					"name": "GET ALL KPI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/kpi?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"kpi"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE KPI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "indicators",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "kpi_description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/kpi",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"kpi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE KPI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "indicators",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "kpi_description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/kpi/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"kpi",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE KPI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/kpi/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"kpi",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TASKS",
+			"item": [
+				{
+					"name": "GET ALL TASKS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/tasks?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE TASKS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_start_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_end_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_priority",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "task_status",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "proof_of_assignment",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/tasks",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE TASKS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_start_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_end_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_priority",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "task_status",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "proof_of_assignment",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/tasks/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tasks",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE TASKS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/tasks/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tasks",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "REQUESTS",
+			"item": [
+				{
+					"name": "GET ALL REQUESTS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/requests?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"requests"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE REQUESTS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_start_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_end_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_priority",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "task_status",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "proof_of_assignment",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/requests",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE REQUESTS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_start_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_end_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_priority",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "task_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "task_status",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "proof_of_assignment",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/requests/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"requests",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE REQUESTS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/requests/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"requests",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LEAVE TYPE",
+			"item": [
+				{
+					"name": "GET ALL LEAVE TYPE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/leave-type?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"leave-type"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE LEAVE TYPE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "leave_type_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "leave_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "used_leave_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "remaining_leave_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "initial_estimate",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "final_estimate",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "leave_type_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "proof_of_assignment",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/leave-type",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"leave-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE LEAVE TYPE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "leave_type_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "leave_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "used_leave_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "remaining_leave_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "initial_estimate",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "final_estimate",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "leave_type_description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/leave-type/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"leave-type",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE LEAVE TYPE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/leave-type/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"leave-type",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PRESENCE",
+			"item": [
+				{
+					"name": "GET ALL PRESENCE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/presence?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"presence"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE PRESENCE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/presence",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"presence"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE PRESENCE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/presence/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"presence",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE PRESENCE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/presence/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"presence",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SCHEDULE",
+			"item": [
+				{
+					"name": "GET ALL SCHEDULE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/schedule?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"schedule"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE SCHEDULE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "shift_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "early_period",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "final_period",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/schedule",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"schedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE SCHEDULE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "shift_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "early_period",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "final_period",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/schedule/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"schedule",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE SCHEDULE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/schedule/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"schedule",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SHIFT",
+			"item": [
+				{
+					"name": "GET ALL SHIFT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/shift?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"shift"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE SHIFT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "shift_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "shift_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "minimal_start_time",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "minimal_end_time",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "maximal_start_time",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "maximal_end_time",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "shift",
+									"value": "[\n                        {\n                            day: 'Monday',\n                            checked: seninChecked,\n                            startTime: seninStartTime,\n                            endTime: seninEndTime,\n                        },\n                        {\n                            day: 'Tuesday',\n                            checked: selasaChecked,\n                            startTime: selasaStartTime,\n                            endTime: selasaEndTime,\n                        },\n                        {\n                            day: 'Wednesday',\n                            checked: rabuChecked,\n                            startTime: rabuStartTime,\n                            endTime: rabuEndTime,\n                        },\n                        {\n                            day: 'Thursday',\n                            checked: kamisChecked,\n                            startTime: kamisStartTime,\n                            endTime: kamisEndTime,\n                        },\n                        {\n                            day: 'Friday',\n                            checked: jumatChecked,\n                            startTime: jumatStartTime,\n                            endTime: jumatEndTime,\n                        },\n                        {\n                            day: 'Saturday',\n                            checked: sabtuChecked,\n                            startTime: sabtuStartTime,\n                            endTime: sabtuEndTime,\n                        },\n                        {\n                            day: 'Sunday',\n                            checked: mingguChecked,\n                            startTime: mingguStartTime,\n                            endTime: mingguEndTime,\n                        },\n                    ]",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/shift",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"shift"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE SHIFT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "shift_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "shift_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "minimal_start_time",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "minimal_end_time",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "maximal_start_time",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "maximal_end_time",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "shift",
+									"value": "[\n                        {\n                            day: 'Monday',\n                            checked: seninChecked,\n                            startTime: seninStartTime,\n                            endTime: seninEndTime,\n                        },\n                        {\n                            day: 'Tuesday',\n                            checked: selasaChecked,\n                            startTime: selasaStartTime,\n                            endTime: selasaEndTime,\n                        },\n                        {\n                            day: 'Wednesday',\n                            checked: rabuChecked,\n                            startTime: rabuStartTime,\n                            endTime: rabuEndTime,\n                        },\n                        {\n                            day: 'Thursday',\n                            checked: kamisChecked,\n                            startTime: kamisStartTime,\n                            endTime: kamisEndTime,\n                        },\n                        {\n                            day: 'Friday',\n                            checked: jumatChecked,\n                            startTime: jumatStartTime,\n                            endTime: jumatEndTime,\n                        },\n                        {\n                            day: 'Saturday',\n                            checked: sabtuChecked,\n                            startTime: sabtuStartTime,\n                            endTime: sabtuEndTime,\n                        },\n                        {\n                            day: 'Sunday',\n                            checked: mingguChecked,\n                            startTime: mingguStartTime,\n                            endTime: mingguEndTime,\n                        },\n                    ]",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/shift/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"shift",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE SHIFT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/shift/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"shift",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EMPLOYEE",
+			"item": [
+				{
+					"name": "GET ALL EMPLOYEE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{url}}/employee?page=1&limit=5&search&sortOrder=asc&sortBy=id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employee"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "search",
+									"value": null
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE EMPLOYEE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set Token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.globals.set(\"token\", jsonData.results.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profile_photo",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "nik_ktp",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "employee_nik",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "npwp",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "birth_place",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "religion",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "batch",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "bank_owner_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "marital_status",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "employee_height",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "employee_weight",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "blood_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "e_ktp_province_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "e_ktp_regency_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "e_ktp_district_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "e_ktp_village_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "e_ktp_full_address",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "e_ktp_postal_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "domicile_province_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "domicile_regency_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "domicile_district_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "domicile_village_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "domicile_full_address",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "domicile_postal_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "vaccine_status",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "urgent_full_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "urgent_phone_number",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "urgent_full_address",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "area_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "branch_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "departement_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "position_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "level_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "employee_status",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "educations",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "work_history",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "urgent_brother",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "urgent_brother_number",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "bpjs",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "insurance",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "join_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "end_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "bank_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "account_number",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "bank_branch_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_license",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "resign_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "resign_applied_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "resign_reason",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "facebook",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "instagram",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "telegram",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "twitter",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "line",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "linkedin",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "tiktok",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "isEmployeeActive",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/employee",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE EMPLOYEE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "profile_photo",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "nik_ktp",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "employee_nik",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "npwp",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "birth_place",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "religion",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "batch",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "bank_owner_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "marital_status",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "employee_height",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "employee_weight",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "blood_type",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "e_ktp_province_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "e_ktp_regency_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "e_ktp_district_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "e_ktp_village_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "e_ktp_full_address",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "e_ktp_postal_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "domicile_province_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "domicile_regency_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "domicile_district_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "domicile_village_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "domicile_full_address",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "domicile_postal_code",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "vaccine_status",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "urgent_full_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "urgent_phone_number",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "urgent_full_address",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "area_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "branch_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "departement_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "position_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "level_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "employee_status",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "educations",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "work_history",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "urgent_brother",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "urgent_brother_number",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "bpjs",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "insurance",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "join_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "end_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "bank_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "account_number",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "bank_branch_name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "driver_license",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "resign_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "resign_applied_date",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "resign_reason",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "facebook",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "instagram",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "telegram",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "twitter",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "line",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "linkedin",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "tiktok",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "isEmployeeActive",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/employee/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE EMPLOYEE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/employee/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"employee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:4000",
+			"type": "string"
+		},
+		{
+			"key": "url",
+			"value": "https://hris-backend.itmamulfahmi.my.id",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
