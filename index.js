@@ -18,15 +18,6 @@ const PORT = process.env.PORT || 4000
 
 const cors = require('cors')
 
-sequelize
-    .sync()
-    .then(() => {
-        console.log('Database synchronized')
-    })
-    .catch((err) => {
-        console.error('Failed to sync database:', err)
-    })
-
 app.use(
     cors({
         origin: '*',
