@@ -1524,7 +1524,7 @@ module.exports = {
                     },
                     {
                         where: {
-                            employee_id: data[0],
+                            employee_id: req.params.id,
                         },
                     }
                 )

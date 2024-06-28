@@ -8,7 +8,6 @@ const jwt = require('jsonwebtoken')
 const { contract } = require('./src/models/index')
 const { Op } = require('sequelize')
 const cron = require('node-cron')
-const { sequelize } = require('./src/models')
 
 app.use(express.json({ limit: '10mb', extended: true }))
 app.use(
