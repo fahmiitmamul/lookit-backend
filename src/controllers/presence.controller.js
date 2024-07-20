@@ -1274,7 +1274,19 @@ module.exports = {
                 })
                 .end(req?.files?.file_out?.[0]?.buffer)
 
-            const data = await presence.create(req.body)
+            function returnTotalTime() {
+                const startTime = new Date(`1970-01-01T${req.body.start_time}Z`)
+                const endTime = new Date(`1970-01-01T${req.body.end_time}Z`)
+                const diff = endTime - startTime
+                const hours = Math.floor(diff / 3600000)
+                const minutes = Math.round((diff % 3600000) / 60000)
+                return `${hours} Jam ${minutes} Menit`
+            }
+
+            const data = await presence.create({
+                total_time: returnTotalTime(),
+                ...req.body,
+            })
             return res.json({
                 success: true,
                 message: 'Get presence successfully',
