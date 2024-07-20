@@ -10,6 +10,7 @@ const { districts } = require('../models/index')
 const { regency } = require('../models/index')
 const { village } = require('../models/index')
 const { user } = require('../models/index')
+const { presence } = require('../models/index')
 const { Op } = require('sequelize')
 const argon = require('argon2')
 
@@ -1199,6 +1200,26 @@ module.exports = {
             return res.json({
                 success: true,
                 message: 'Get employee branch successfully',
+                results: data,
+            })
+        } catch (err) {
+            return errorhandler(res, err)
+        }
+    },
+    getPresence: async (req, res) => {
+        try {
+            const data = await employee.findAll({
+                include: [
+                    {
+                        model: presence,
+                        as: 'presences',
+                    },
+                ],
+                attributes: ['id'],
+            })
+            return res.json({
+                success: true,
+                message: 'Get employee presence successfully',
                 results: data,
             })
         } catch (err) {

@@ -6,8 +6,8 @@ employeeRouter.get('/', employeeController.getAll)
 employeeRouter.get('/active', employeeController.getActiveEmployee)
 employeeRouter.get('/non-active', employeeController.getNonActiveEmployee)
 employeeRouter.get('/nik/:id', employeeController.findOneByNik)
-employeeRouter.get('/:id', employeeController.findOneById)
 employeeRouter.get('/branch', employeeController.getBranch)
+employeeRouter.get('/presence', employeeController.getPresence)
 employeeRouter.post(
     '/',
     uploadMiddleware('profile_photo'),
@@ -20,6 +20,7 @@ employeeRouter.patch(
     uploadMiddleware('profile_photo'),
     employeeController.update
 )
+employeeRouter.get('/:id', employeeController.findOneById)
 employeeRouter.delete('/:id', employeeController.delete)
 
 module.exports = employeeRouter

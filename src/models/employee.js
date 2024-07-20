@@ -192,6 +192,12 @@ module.exports = (sequelize, DataTypes) => {
                 onDelete: 'CASCADE',
                 onUpdate: 'CASCADE',
             })
+
+            employee.hasMany(models.presence, {
+                foreignKey: 'employee_id',
+                onDelete: 'CASCADE',
+                onUpdate: 'CASCADE',
+            })
         }
     }
     employee.init(
