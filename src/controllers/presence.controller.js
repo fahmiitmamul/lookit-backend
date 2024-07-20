@@ -6,6 +6,7 @@ const { schedule } = require('../models/index')
 const { employee } = require('../models/index')
 const { shift } = require('../models/index')
 const { Op } = require('sequelize')
+const { v2: cloudinary } = require('cloudinary')
 
 module.exports = {
     getAll: async (req, res) => {
@@ -1273,7 +1274,7 @@ module.exports = {
                 })
                 .end(req?.files?.file_out?.[0]?.buffer)
 
-            const data = await presence.create(...req.body)
+            const data = await presence.create(req.body)
             return res.json({
                 success: true,
                 message: 'Get presence successfully',
