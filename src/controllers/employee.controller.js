@@ -1208,6 +1208,9 @@ module.exports = {
     },
     getPresence: async (req, res) => {
         try {
+            const employeeList = req.body.employee
+            const selectedEmployee = employeeList.split(',').map(Number)
+
             const data = await employee.findAll({
                 include: [
                     {
@@ -1215,7 +1218,9 @@ module.exports = {
                         as: 'presences',
                     },
                 ],
-                attributes: ['id'],
+                where: {
+                    id: selectedEmployee,
+                },
             })
             return res.json({
                 success: true,
