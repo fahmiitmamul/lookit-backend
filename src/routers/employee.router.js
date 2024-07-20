@@ -7,7 +7,7 @@ employeeRouter.get('/active', employeeController.getActiveEmployee)
 employeeRouter.get('/non-active', employeeController.getNonActiveEmployee)
 employeeRouter.get('/nik/:id', employeeController.findOneByNik)
 employeeRouter.get('/branch', employeeController.getBranch)
-employeeRouter.get('/presence', employeeController.getPresence)
+employeeRouter.get('/presence/:id', employeeController.getPresence)
 employeeRouter.post(
     '/',
     uploadMiddleware('profile_photo'),

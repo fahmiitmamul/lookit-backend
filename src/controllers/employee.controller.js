@@ -1208,7 +1208,7 @@ module.exports = {
     },
     getPresence: async (req, res) => {
         try {
-            const employeeList = req.body.employee
+            const employeeList = req.params.id
             const selectedEmployee = employeeList.split(',').map(Number)
 
             const data = await employee.findAll({
