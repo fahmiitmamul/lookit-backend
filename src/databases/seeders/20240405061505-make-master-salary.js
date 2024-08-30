@@ -31,7 +31,7 @@ module.exports = {
                 {
                     master_salary_code: '10',
                     master_salary_name: 'Potongan',
-                    master_salary_type: 1,
+                    master_salary_type: 2,
                     createdAt: new Date(),
                     updatedAt: new Date(),
                 },
