@@ -17,7 +17,7 @@ module.exports = {
             })
             return res.json({
                 success: true,
-                message: 'Get all total_salary successfully',
+                message: 'Get all total salary successfully',
                 results: {
                     data: rows,
                     totalData: count,
@@ -35,7 +35,7 @@ module.exports = {
             const data = await total_salary.create(req.body)
             return res.json({
                 success: true,
-                message: 'Create total_salary successfully',
+                message: 'Create total salary successfully',
                 results: data,
             })
         } catch (err) {
@@ -51,7 +51,7 @@ module.exports = {
             })
             return res.json({
                 success: true,
-                message: 'Get total_salary successfully',
+                message: 'Get total salary successfully',
                 results: data,
             })
         } catch (err) {
@@ -67,7 +67,7 @@ module.exports = {
             })
             return res.json({
                 success: true,
-                message: 'Update total_salary successfully',
+                message: 'Update total salary successfully',
                 results: data,
             })
         } catch (err) {
@@ -83,7 +83,7 @@ module.exports = {
             })
             return res.json({
                 success: true,
-                message: 'Delete total_salary successfully',
+                message: 'Delete total salary successfully',
                 results: data,
             })
         } catch (err) {
