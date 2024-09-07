@@ -132,6 +132,7 @@ router.use(
     authMiddleware,
     require('./main-salary-tax.router')
 )
+router.use('/salary', authMiddleware, require('./total-salary.router'))
 
 router.get('/', (req, res) => {
     return res.json({

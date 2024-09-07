@@ -1,5 +1,5 @@
 const salaryRouter = require('express').Router()
-const salaryController = require('../controllers/salary.controller')
+const salaryController = require('../controllers/total-salary.controller')
 
 salaryRouter.get('/', salaryController.getAll)
 salaryRouter.get('/:id', salaryController.findOneById)
